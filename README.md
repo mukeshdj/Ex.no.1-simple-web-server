@@ -1,9 +1,11 @@
-
 ## Ex 01 -Simple Web Server using Spring Boot
 
 ## AIM:
+
 To develop a Simple Web Server using Spring Boot that can handle basic HTTP requests and return appropriate responses through RESTful endpoints.
+
 ## ALGORITHM:
+
 Start a New Spring Boot Project:
 
 Use Spring Initializr (https://start.spring.io/)
@@ -35,80 +37,106 @@ http://localhost:8080/hello
 
 You should see the output (e.g., "Hello World").
 
-Stop the Server:
+Stop the Server.
 
 Stop the Spring Boot server once testing is complete.
 
+## Program
 
-## Program 
-
+```
 simple-web-server/
 ├── src/
-│   └── main/
-│       ├── java/
-│       │   └── com.example.demo/
-│       │       ├── DemoApplication.java
-│       │       └── HelloController.java
-│       └── resources/
-│           └── application.properties
+│ └── main/
+│ ├── java/
+│ │ └── com.example.simple_web_server/
+│ │ ├── SimpleWebServerApplication.java
+│ │ └── HelloController.java
+│ └── resources/
+│ └── application.properties
 ├── pom.xml
+```
 
- ### Pom.xml
+### pom.xml
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>simple-web-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>simple-web-server</name>
+	<description/>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
 
-    <groupId>com.example</groupId>
-    <artifactId>simple-web-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>Simple Web Server</name>
-    <description>Demo project for Spring Boot Web Server</description>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
-        <relativePath/>
-    </parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
-    <dependencies>
-        <!-- Spring Boot Web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>
+```
 
-### DemoApplication.java
+### SimpleWebServerApplication.java
 
-package com.example.demo;
+```java
+package com.example.simple_web_server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
-}
+public class SimpleWebServerApplication {
 
+	public static void main(String[] args) {
+		SpringApplication.run(SimpleWebServerApplication.class, args);
+	}
+
+}
+```
 
 ### HelloController.java
-package com.example.demo;
+
+```java
+package com.example.simple_web_server;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -117,19 +145,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/hello")
-    public String sayHello() {
+    public String hello() {
         return "Hello, Spring Boot!";
     }
 }
-
+```
 
 ### application.properties:
 
- server.port=8081
+```properties
+spring.application.name=simple-web-server
+```
 
+### Output:
 
-
-
-Output:
-
-
+![alt text](image.png)
