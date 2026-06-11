@@ -1,11 +1,9 @@
+
 ## Ex 01 -Simple Web Server using Spring Boot
 
 ## AIM:
-
 To develop a Simple Web Server using Spring Boot that can handle basic HTTP requests and return appropriate responses through RESTful endpoints.
-
 ## ALGORITHM:
-
 Start a New Spring Boot Project:
 
 Use Spring Initializr (https://start.spring.io/)
@@ -37,28 +35,26 @@ http://localhost:8080/hello
 
 You should see the output (e.g., "Hello World").
 
-Stop the Server.
+Stop the Server:
 
 Stop the Spring Boot server once testing is complete.
 
-## Program
 
+## Program 
 ```
 simple-web-server/
 ├── src/
-│ └── main/
-│ ├── java/
-│ │ └── com.example.simple_web_server/
-│ │ ├── SimpleWebServerApplication.java
-│ │ └── HelloController.java
-│ └── resources/
-│ └── application.properties
+│   └── main/
+│       ├── java/
+│       │   └── com.example.demo/
+│       │       ├── DemoApplication.java
+│       │       └── HelloController.java
+│       └── resources/
+│           └── application.properties
 ├── pom.xml
 ```
-
-### pom.xml
-
-```xml
+ ### Pom.xml
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -113,30 +109,31 @@ simple-web-server/
 	</build>
 
 </project>
+
 ```
 
-### SimpleWebServerApplication.java
 
-```java
-package com.example.simple_web_server;
+### DemoApplication.java
+
+
+```
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimpleWebServerApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SimpleWebServerApplication.class, args);
-	}
-
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 }
 ```
 
 ### HelloController.java
+```
 
-```java
-package com.example.simple_web_server;
+package com.example.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -145,18 +142,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/hello")
-    public String hello() {
+    public String sayHello() {
         return "Hello, Spring Boot!";
     }
 }
-```
 
+```
 ### application.properties:
 
-```properties
-spring.application.name=simple-web-server
-```
+ server.port=8081
 
-### Output:
 
-![alt text](image.png)
+
+
+## Output:
+<img width="960" height="495" alt="Screenshot 2026-06-07 131712" src="https://github.com/user-attachments/assets/35eca188-edc6-4999-8556-add2f98a72f6" />
+
+## Result:
+Thus, the program in Simple Web Server using Spring Boot is executed as successfully.
+
